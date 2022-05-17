@@ -16,29 +16,48 @@
     <script src="js/three.js"></script>
     <script>
       const scene = new THREE.Scene();
-      const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+      //장면 (무대)
+
+      // PerspectiveCamera( fov : Number, aspect : Number, near : Number, far : Number )
+      const camera = new THREE.PerspectiveCamera(25, window.innerWidth / window.innerHeight, 0.1, 1000);
+      //카메라
 
       const renderer = new THREE.WebGLRenderer();
-      renderer.setSize(window.innerWidth, window.innerHeight);
-      document.body.appendChild(renderer.domElement);
+      //랜더러
 
-      const geometry = new THREE.BoxGeometry();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      //장면 사이즈
+
+      document.body.appendChild(renderer.domElement);
+      //body 태그에 넣는다
+
+      const box = new THREE.BoxGeometry();
+      //box geometry 생성
       const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
-      const cube = new THREE.Mesh(geometry, material);
+      //재질 설정
+      const cube = new THREE.Mesh(box, material);
+
       scene.add(cube);
+      //무대에 큐브 올려놓자.
 
       camera.position.z = 5;
+      //카메라 위치
 
       function animate() {
         requestAnimationFrame(animate);
+        //계속 animate 실행시켜줌
 
         cube.rotation.x += 0.01;
         cube.rotation.y += 0.01;
+        cube.rotation.z += 0.01;
+        //계속 값을 변경해줌
 
         renderer.render(scene, camera);
+        //장면을 찍어냄. 찰칵 찰칵
       }
 
       animate();
+      //애니메이션 실행
     </script>
   </body>
 </html>
