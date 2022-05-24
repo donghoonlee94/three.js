@@ -37,6 +37,8 @@ const material = new THREE.MeshLambertMaterial({ color: 0xffff00 });
 const boxMesh = new THREE.Mesh(geometry, material);
 scene.add(boxMesh);
 
+console.log(boxMesh);
+
 const animete = () => {
   boxMesh.rotation.z += 0.01;
   boxMesh.rotation.x += 0.01;
