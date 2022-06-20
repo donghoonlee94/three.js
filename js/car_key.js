@@ -24,13 +24,16 @@ const init = () => {
 
   //카메라 컨트롤
   controls = new OrbitControls(camera, renderer.domElement);
+  // Angle > 화면에 보이는 카메라 앵글의 제한을 설정할 수 있음.
   // controls.minPolarAngle = Math.radians(20);
   // controls.maxPolarAngle = Math.radians(120);
   // controls.target.set(0, 10, 0);
+  // autoRotate > 화면 자동 회전, Spped > 속도 조절
   // controls.autoRotate = true;
   // controls.autoRotateSpeed = 1;
   // controls.enablePan = false;
   // controls.enableZoom = false;
+  // damping -> 화면 부드럽게
   // controls.enableDamping = true;
   {
     const axes = new THREE.AxesHelper(50);
